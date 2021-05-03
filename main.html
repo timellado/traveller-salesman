@@ -1,0 +1,49 @@
+
+    <!-- <script src="test.js"></script>
+    <script>
+        var js_wrapped_fib = Module.cwrap("calculate_cost", "string", ["string"]);
+
+        function pressBtn() {
+            console.log('The result of calculate_cost(["4", "4", "0 1 15", "1 2 10", "2 3 45", "3 0 4"]) is:', js_wrapped_fib("4,4,0 1 15,1 2 10,2 3 45,3 0 4"));
+        }
+    </script> -->
+
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <script src="travelling_selesman.js"></script>
+    <script type="module" src="main.js"></script>
+    <script src="https://d3js.org/d3-color.v1.min.js"></script>
+    <script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <div class="centered-text">
+        <div class="centered-text">
+            <h1> Tarea 3 IIC3585 - Wasm </h1>
+            <h5> by: Noemi Crosby, Maximiliano Friedl & Tomas Mellado </h5>
+        </div>
+        <div id="input-container">
+            <textarea id="input" cols="50" rows="3" pattern="/^[a-z]{1}([ X])[a-z]{1}([ X])\d{}$/"></textarea>
+            <br>
+            <input id="submit-input" type="submit" value="Ingresar Grafo">
+        </div>
+
+        <div id="canvas-container">
+            <canvas id="canv">
+            </canvas>
+        </div>
+
+        <div id="output-container">
+            <p>El largo total del camino es: <span id="result-length"></span></p>
+            <p>El tiempo de ejecucion fue:<span id="result-time"></span></p>
+        </div>
+</body>
+
+</html>

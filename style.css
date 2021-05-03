@@ -1,0 +1,16 @@
+.centered-text {
+    text-align: center;
+  }
+  
+  #input-container, #output-container {
+    width: 400px;
+    margin: auto;
+  }
+  
+  #canvas-container {
+    margin: auto;
+  }
+  
+  #graph {
+    border: black 1px solid;
+  }

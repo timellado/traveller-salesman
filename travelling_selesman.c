@@ -78,7 +78,7 @@ char *EMSCRIPTEN_KEEPALIVE calculate_cost(char *input_char)
     int matrix_len = atoi(input_array[0]);
     int number_lines = atoi(input_array[1]);
 
-    // printf("FIRST 2 VALUES %d %d\n", matrix_len, number_lines);
+    printf("FIRST 2 VALUES %d %d\n", matrix_len, number_lines);
 
     //matrix init
     int **matrix = (int **)malloc(sizeof(int) * matrix_len);
@@ -127,7 +127,7 @@ char *EMSCRIPTEN_KEEPALIVE calculate_cost(char *input_char)
     char cost_str[20];
     sprintf(cost_str, ",%d\n", cost);
     strcat(return_value, cost_str);
-    // printf("RETURN: %s", return_value);
+    printf("RETURN: %s", return_value);
     // printf("Costo mínimo: %d\n", cost);
     return return_value;
 }
