@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <emscripten.h>
 
 #define MAX_SPLIT 255
 #define BUFFER_SIZE 4096
@@ -69,32 +70,15 @@ static char **split_by_sep(char *str, char *sep)
     return new_str;
 }
 
-int main(char **input_array)
+char *EMSCRIPTEN_KEEPALIVE calculate_cost(char *input_char)
 {
-    // char *number = calloc(20, sizeof(char));
-    // char *input_number_lines = calloc(20, sizeof(char));
-    // char *line1 = calloc(20, sizeof(char));
-    // char *line2 = calloc(20, sizeof(char));
-    // char *line3 = calloc(20, sizeof(char));
-    // char *line4 = calloc(20, sizeof(char));
-    // sprintf(number, "%d", 4);
-    // sprintf(input_number_lines, "%d", 4);
-    // sprintf(line1, "%s", "0 1 15");
-    // sprintf(line2, "%s", "1 2 10");
-    // sprintf(line3, "%s", "2 3 45");
-    // sprintf(line4, "%s", "3 0 4");
-
-    // char **input_array = malloc(sizeof(char *) * (atoi(input_number_lines) + 2));
-    // input_array[0] = number;
-    // input_array[1] = input_number_lines;
-    // input_array[2] = line1;
-    // input_array[3] = line2;
-    // input_array[4] = line3;
-    // input_array[5] = line4;
+    char** input_array = split_by_sep(input_char, ",");
 
     int i, j;
     int matrix_len = atoi(input_array[0]);
     int number_lines = atoi(input_array[1]);
+
+    // printf("FIRST 2 VALUES %d %d\n", matrix_len, number_lines);
 
     //matrix init
     int **matrix = (int **)malloc(sizeof(int) * matrix_len);
@@ -143,8 +127,7 @@ int main(char **input_array)
     char cost_str[20];
     sprintf(cost_str, ",%d\n", cost);
     strcat(return_value, cost_str);
-    printf("RETURN: %s", return_value);
+    // printf("RETURN: %s", return_value);
     // printf("Costo mínimo: %d\n", cost);
-
     return return_value;
 }
